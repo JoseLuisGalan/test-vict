@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tank Turn Tactics</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- MENÚ DE INICIO -->
+  <section id="menu" class="screen">
+    <h1>Tank Turn Tactics</h1>
+    <p class="sub">Estrategia por turnos. Gana el último tanque en pie.</p>
+    <label class="count">Jugadores: <strong id="count-label">6</strong>
+      <input id="count" type="range" min="2" max="14" value="6">
+    </label>
+    <div class="row">
+      <button id="btn-play" class="primary">Jugar</button>
+      <button id="btn-help">Cómo jugar</button>
+    </div>
+    <ul id="help" class="help" hidden>
+      <li>Cada turno tienes <b>2 acciones</b>: mover o disparar.</li>
+      <li><b>Mover:</b> clic en una casilla vecina libre, o flechas / WASD.</li>
+      <li><b>Disparar:</b> clic en un tanque enemigo marcado en rojo (alcance 4, sin muros en medio). Quita 25 de vida.</li>
+      <li><b>Terminar turno:</b> botón o tecla Enter.</li>
+      <li>Todos juegan en el mismo dispositivo, por turnos.</li>
+    </ul>
+  </section>
+
+  <!-- JUEGO -->
+  <main id="game" class="screen" hidden>
+    <div id="turn-banner">
+      <span id="turn-dot" class="dot"></span>
+      <span id="turn-text"></span>
+      <span id="ap-text"></span>
+    </div>
+    <div class="layout">
+      <canvas id="board" aria-label="Tablero"></canvas>
+      <aside>
+        <ul id="player-list"></ul>
+        <p id="message"></p>
+        <div class="col">
+          <button id="btn-end" class="primary">Terminar turno</button>
+          <button id="btn-restart">Reiniciar partida</button>
+          <button id="btn-menu">Menú</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- FIN DE PARTIDA -->
+  <div id="over" class="overlay" hidden>
+    <div class="modal">
+      <h2 id="over-title"></h2>
+      <div class="row">
+        <button id="btn-again" class="primary">Jugar de nuevo</button>
+        <button id="btn-over-menu">Menú</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
